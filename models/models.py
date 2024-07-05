@@ -9,7 +9,7 @@ role = Table(
     'role',
     metadata,
     Column("id", Integer, primary_key=True),
-    Column('name', String(50), nullable=False),
+    Column('name', String, nullable=False),
     Column('permishions', JSON),    
 )
 
@@ -17,9 +17,9 @@ user = Table(
     "user",
     metadata,
     Column("id", Integer, primary_key=True),
-    Column("email", String(50), nullable=False),
-    Column("username", String(50), nullable=False),
-    Column("hashed_password", String(50), nullable=False),
+    Column("email", String, nullable=False),
+    Column("username", String, nullable=False),
+    Column("hashed_password", String, nullable=False),
     Column('registrete_at', TIMESTAMP, default=datetime.utcnow),
     Column("role_id", Integer, ForeignKey(role.c.id)),
     Column("is_active", Boolean, default=True, nullable=False),
